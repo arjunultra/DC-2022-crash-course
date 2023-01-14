@@ -23,6 +23,7 @@ a:link {
   background-size: cover;
   background-position-x: 20%;
   background-position-y: 20%;
+  animation: introLoad 3s forwards;
 }
 .logo {
   font-weight: bold;
@@ -69,6 +70,9 @@ nav {
   transform: translateX(100%);
   transition: transform 0.5s ease-in-out;
 }
+.open-nav {
+  transform: translateX(0%);
+}
 ul {
   list-style: none;
   margin-top: 8em;
@@ -92,11 +96,13 @@ ul {
 section.hero {
   color: #ffffff;
   height: 90vh;
+  animation: moveDown 1s ease-in-out forwards;
+  opacity: 0;
   h1 {
     margin-bottom: 0.8em;
   }
   p.subhead {
-    margin-bottom: 1.5em;
+    margin-bottom: 2.5em;
   }
 }
 .down-arrow {
@@ -104,6 +110,7 @@ section.hero {
   position: absolute;
   bottom: 2em;
   width: 1em;
+  animation: arrowDown 1s alternate-reverse infinite;
 
   path {
     fill: #ffffff;
@@ -223,5 +230,32 @@ section.hero {
   }
   .feature {
     gap: 0;
+  }
+}
+// Intro Animation
+@keyframes introLoad {
+  from {
+    clip-path: inset(5% 45% 62% 27%);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+// Arrow Down Animation
+@keyframes arrowDown {
+  from {
+    transform: translateY(-30px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes moveDown {
+  from {
+    transform: translateY(-100px);
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
