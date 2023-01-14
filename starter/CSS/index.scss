@@ -26,7 +26,13 @@ a:link {
 }
 .logo {
   font-weight: bold;
-  color: #ffffff;
+  background-color: #ffffff;
+  padding: 0.5em 1em;
+  border-radius: 1em;
+  color: #000000;
+  .brand {
+    color: #d3001d;
+  }
 }
 /*
 .brand {
@@ -86,6 +92,12 @@ ul {
 section.hero {
   color: #ffffff;
   height: 90vh;
+  h1 {
+    margin-bottom: 0.8em;
+  }
+  p.subhead {
+    margin-bottom: 1.5em;
+  }
 }
 .down-arrow {
   stroke: #ffffff;
@@ -125,6 +137,13 @@ section.hero {
   .menu {
     display: none;
   }
+  .logo {
+    font-weight: bold;
+    color: #000000;
+    .brand {
+      color: #d3001d;
+    }
+  }
   nav {
     transform: translateX(0);
     transition: none;
@@ -132,16 +151,77 @@ section.hero {
     display: block;
     height: auto;
     width: auto;
+    background-color: transparent;
 
     ul {
       display: flex;
       margin: 0;
-      background-color: #cd071e;
       color: #ffffff;
+      padding: 0.5em 1.5em;
+      font-size: 0.9rem;
+      li a {
+        color: #ffffff;
+        &:hover {
+          background-color: transparent;
+          text-decoration: underline;
+        }
+      }
     }
-
     svg.close {
       display: none;
     }
+  }
+  .hero-img {
+    left: unset;
+    right: 0;
+    width: 50%;
+    height: 42em;
+  }
+  section.hero {
+    color: #000000;
+    height: auto;
+    width: 40%;
+    margin-bottom: 8em;
+    svg.down-arrow {
+      stroke: black;
+      position: unset;
+      path {
+        fill: black;
+      }
+    }
+  }
+  .feature {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 3em;
+    margin-bottom: 8em;
+    img {
+      width: 25em;
+    }
+    .content {
+      text-align: right;
+      width: 25em;
+    }
+  }
+  .feature.left {
+    grid-template-areas: "left right";
+    img {
+      grid-area: left;
+    }
+    .content {
+      text-align: left;
+      width: 25em;
+      justify-self: left;
+    }
+  }
+}
+/*Last-Breakpoint -- PC*/
+@media only screen and (min-width: 1200px) {
+  .wrapper {
+    width: 1200px;
+    margin: 0 auto;
+  }
+  .feature {
+    gap: 0;
   }
 }
